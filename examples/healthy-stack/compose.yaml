@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@database:5432/store
+      PAYMENT_API_KEY: local-demo-key
+  proxy:
+    image: nginx:1.27-alpine
+    ports:
+      - "80:80"

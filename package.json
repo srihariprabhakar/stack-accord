@@ -1,0 +1,60 @@
+{
+  "name": "stack-accord",
+  "version": "0.1.0",
+  "description": "Cross-layer deployment preflight checks for containers, proxies, Kubernetes, and App Platform.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "stackaccord": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check": "tsc --noEmit",
+    "dev": "tsx src/cli.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:coverage": "node --experimental-test-coverage --import tsx --test tests/*.test.ts",
+    "prepack": "pnpm run build"
+  },
+  "keywords": [
+    "devops",
+    "kubernetes",
+    "docker",
+    "nginx",
+    "deployment",
+    "linter",
+    "app-platform"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srihariprabhakar/stack-accord.git"
+  },
+  "bugs": {
+    "url": "https://github.com/srihariprabhakar/stack-accord/issues"
+  },
+  "homepage": "https://github.com/srihariprabhakar/stack-accord#readme",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

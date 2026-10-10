@@ -1,0 +1,10 @@
+name: broken-storefront
+services:
+  - name: api
+    dockerfile_path: Dockerfile
+    source_dir: /
+    http_port: 8080
+    run_command: node server.js --host 127.0.0.1
+    envs:
+      - key: DATABASE_URL
+        value: ${api-db.DATABASE_URL}

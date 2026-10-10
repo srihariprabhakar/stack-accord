@@ -1,0 +1,12 @@
+name: healthy-storefront
+services:
+  - name: api
+    dockerfile_path: Dockerfile
+    source_dir: /
+    http_port: 3000
+    run_command: node server.js --host 0.0.0.0
+    envs:
+      - key: DATABASE_URL
+        value: ${api-db.DATABASE_URL}
+      - key: PAYMENT_API_KEY
+        value: ${PAYMENT_API_KEY}
